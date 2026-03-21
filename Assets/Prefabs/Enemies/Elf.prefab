@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0dca506f6c5893409c47ca1621471f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ElfCombat
-  damage: 10
+  damage: 5
   attackPoint: {fileID: 8885886999569069910}
   weaponRange: 1.2
   playerLayer:
