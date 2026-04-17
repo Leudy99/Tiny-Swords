@@ -6,6 +6,9 @@ public class ElfHealth : MonoBehaviour
     public int currentHealth = 50;
     public int maxHealth = 50;
 
+    [Header("Experience")]
+    public int experienceReward = 25;
+
     [Header("Health Bar")]
     public Transform healthFill;
 
@@ -54,10 +57,22 @@ public class ElfHealth : MonoBehaviour
         }
     }
 
-        private IEnumerator Die()
+    void GiveExperienceToPlayer()
+    {
+        PlayerLevelSystem playerLevelSystem = FindFirstObjectByType<PlayerLevelSystem>();
+
+        if (playerLevelSystem != null)
+        {
+            playerLevelSystem.AddExperience(experienceReward);
+        }
+    }
+
+    private IEnumerator Die()
     {
         if (isDead) yield break;
         isDead = true;
+
+        GiveExperienceToPlayer();
 
         // parar movimiento del enemigo
         Rigidbody2D rb = GetComponent<Rigidbody2D>();

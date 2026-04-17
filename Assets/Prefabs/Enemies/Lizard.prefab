@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 3692790712176055436}
   m_Layer: 7
   m_Name: Lizard
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -899,6 +899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ElfHealth
   currentHealth: 150
   maxHealth: 150
+  experienceReward: 25
   healthFill: {fileID: 5008171028735390680}
   damageFlash: {fileID: 5539597171661945846}
   audioSource: {fileID: 1223990169469051403}

@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 6846425007819806009}
   m_Layer: 7
   m_Name: Bear
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -698,6 +698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ElfHealth
   currentHealth: 150
   maxHealth: 150
+  experienceReward: 25
   healthFill: {fileID: 894401628372758289}
   damageFlash: {fileID: 2148933713668689602}
   audioSource: {fileID: 8819488344020280901}

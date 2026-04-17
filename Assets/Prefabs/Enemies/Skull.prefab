@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 2683022883919998887}
   m_Layer: 7
   m_Name: Skull
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -334,6 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ElfHealth
   currentHealth: 150
   maxHealth: 150
+  experienceReward: 25
   healthFill: {fileID: 3288887719657514242}
   damageFlash: {fileID: 6846689293227123427}
   audioSource: {fileID: 2748983640222915306}

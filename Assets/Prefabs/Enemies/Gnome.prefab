@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 4724279793695782873}
   m_Layer: 7
   m_Name: Gnome
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -515,6 +515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ElfHealth
   currentHealth: 150
   maxHealth: 150
+  experienceReward: 25
   healthFill: {fileID: 8231259497848896229}
   damageFlash: {fileID: 8565339655331866055}
   audioSource: {fileID: 7074034707919353545}
