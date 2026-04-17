@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 5099485045267347896}
   m_Layer: 7
   m_Name: Minotaur
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -378,6 +378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ElfHealth
   currentHealth: 150
   maxHealth: 150
+  experienceReward: 25
   healthFill: {fileID: 8759830736991191243}
   damageFlash: {fileID: 6601593764254119686}
   audioSource: {fileID: 1410395153712807913}

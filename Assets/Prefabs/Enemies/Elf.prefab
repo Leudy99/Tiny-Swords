@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 3124445086817864414}
   m_Layer: 7
   m_Name: Elf
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -493,6 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ElfHealth
   currentHealth: 100
   maxHealth: 100
+  experienceReward: 25
   healthFill: {fileID: 7879464810335751892}
   damageFlash: {fileID: 3313989916719676286}
   audioSource: {fileID: 2136888309075636449}

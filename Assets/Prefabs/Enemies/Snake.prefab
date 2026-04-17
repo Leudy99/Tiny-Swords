@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 4794517735371116000}
   m_Layer: 7
   m_Name: Snake
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -513,6 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ElfHealth
   currentHealth: 150
   maxHealth: 150
+  experienceReward: 25
   healthFill: {fileID: 4001318248757949884}
   damageFlash: {fileID: 5098527783248478036}
   audioSource: {fileID: 3887676977685084387}

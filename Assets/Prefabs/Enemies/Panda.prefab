@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 4806778586374712214}
   m_Layer: 7
   m_Name: Panda
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -387,6 +387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ElfHealth
   currentHealth: 150
   maxHealth: 150
+  experienceReward: 25
   healthFill: {fileID: 7905424732513678359}
   damageFlash: {fileID: 8256706879559455964}
   audioSource: {fileID: 3084632150843509702}

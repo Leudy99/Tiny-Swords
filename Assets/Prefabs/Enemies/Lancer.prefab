@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 3096407913134973943}
   m_Layer: 7
   m_Name: Lancer
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -605,6 +605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ElfHealth
   currentHealth: 150
   maxHealth: 150
+  experienceReward: 25
   healthFill: {fileID: 6259531895948707144}
   damageFlash: {fileID: 3987623223401417309}
   audioSource: {fileID: 5189281954918276747}

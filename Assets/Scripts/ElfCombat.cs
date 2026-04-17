@@ -19,13 +19,19 @@ public class ElfCombat : MonoBehaviour
             audioSource.PlayOneShot(attackSound);
         }
     }
+
     public void Attack()
     {
         Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, weaponRange, playerLayer);
 
-        if(hitPlayer.Length > 0)
+        if (hitPlayer.Length > 0)
         {
-            hitPlayer[0].GetComponent<PlayerHealth>().ChangeHealth(-damage);
+            PlayerHealth playerHealth = hitPlayer[0].GetComponent<PlayerHealth>();
+
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(damage);
+            }
         }
     }
 }

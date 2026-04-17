@@ -6,6 +6,7 @@ public class LevelProgressManager : MonoBehaviour
 {
     public PlayerLevel playerLevel;
     public PlayerHealth playerHealth;
+    public PlayerLevelSystem playerLevelSystem;
     public Transform playerSpawnPoint;
     public Transform enemiesParent;
 
@@ -19,18 +20,30 @@ public class LevelProgressManager : MonoBehaviour
     public float visibleDuration = 2f;
     public int finalLevel = 5;
 
+    [Header("Completion Rules")]
+    public bool canCompleteByKillingAllEnemies = true;
+    public bool canCompleteByExperience = true;
+
+    [Header("XP Required Per Level")]
+    public int level1RequiredXP = 100;
+    public int level2RequiredXP = 150;
+    public int level3RequiredXP = 200;
+    public int level4RequiredXP = 250;
+
     [Header("Audio")]
     public AudioSource audioSource;
     public AudioClip victorySound;
 
     private bool levelCompleted = false;
     private bool bossDefeated = false;
+    private int levelStartExperience = 0;
 
     void Start()
     {
         if (playerLevel != null)
         {
             playerLevel.OnLevelChanged += HandleLevelChanged;
+            levelStartExperience = GetCurrentTotalExperience();
         }
     }
 
@@ -45,6 +58,7 @@ public class LevelProgressManager : MonoBehaviour
     private void HandleLevelChanged(int newLevel)
     {
         bossDefeated = false;
+        levelStartExperience = GetCurrentTotalExperience();
     }
 
     public void SetBossDefeated()
@@ -55,21 +69,38 @@ public class LevelProgressManager : MonoBehaviour
     void Update()
     {
         if (levelCompleted) return;
-        if (playerLevel == null || enemiesParent == null) return;
+        if (playerLevel == null) return;
 
-        if (enemiesParent.childCount == 0)
+        bool completedByEnemies = false;
+        bool completedByExperience = false;
+
+        if (canCompleteByKillingAllEnemies && enemiesParent != null)
         {
-            if (playerLevel.currentLevel >= finalLevel)
-            {
-                if (bossDefeated)
-                {
-                    StartCoroutine(HandleLevelComplete());
-                }
-            }
-            else
+            completedByEnemies = enemiesParent.childCount == 0;
+        }
+
+        if (canCompleteByExperience && playerLevelSystem != null)
+        {
+            int gainedExperienceThisLevel = playerLevelSystem.totalExperience - levelStartExperience;
+            int requiredXP = GetRequiredExperienceForCurrentLevel();
+
+            completedByExperience = gainedExperienceThisLevel >= requiredXP;
+        }
+
+        bool shouldCompleteLevel = completedByEnemies || completedByExperience;
+
+        if (!shouldCompleteLevel) return;
+
+        if (playerLevel.currentLevel >= finalLevel)
+        {
+            if (bossDefeated)
             {
                 StartCoroutine(HandleLevelComplete());
             }
+        }
+        else
+        {
+            StartCoroutine(HandleLevelComplete());
         }
     }
 
@@ -152,5 +183,30 @@ public class LevelProgressManager : MonoBehaviour
         }
 
         levelCompleteCanvasGroup.alpha = end;
+    }
+
+    private int GetCurrentTotalExperience()
+    {
+        if (playerLevelSystem != null)
+            return playerLevelSystem.totalExperience;
+
+        return 0;
+    }
+
+    private int GetRequiredExperienceForCurrentLevel()
+    {
+        switch (playerLevel.currentLevel)
+        {
+            case 1:
+                return level1RequiredXP;
+            case 2:
+                return level2RequiredXP;
+            case 3:
+                return level3RequiredXP;
+            case 4:
+                return level4RequiredXP;
+            default:
+                return 999999;
+        }
     }
 }

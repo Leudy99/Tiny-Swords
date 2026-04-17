@@ -8,6 +8,10 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     public int maxHealth;
 
+    [Header("Defense")]
+    public int defense = 0;
+    public int minimumDamageTaken = 1;
+
     public TMP_Text healthText;
     public Animator healthTextAnim;
 
@@ -32,6 +36,19 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         UpdateHealthUI();
+    }
+
+    public void TakeDamage(int incomingDamage)
+    {
+        if (isDead)
+            return;
+
+        int finalDamage = incomingDamage - defense;
+
+        if (finalDamage < minimumDamageTaken)
+            finalDamage = minimumDamageTaken;
+
+        ChangeHealth(-finalDamage);
     }
 
     public void ChangeHealth(int amount)
@@ -160,7 +177,7 @@ public class PlayerHealth : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    private void UpdateHealthUI()
+    public void UpdateHealthUI()
     {
         if (healthText != null)
         {
